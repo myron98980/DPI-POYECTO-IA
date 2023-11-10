@@ -25,7 +25,7 @@ st.sidebar.header("Configuracion")
 
 # Model Options
 model_type = st.sidebar.radio(
-    "Select Task", ['Deteccion', 'Segmentacion'])
+    "Seleccionar tarea", ['Deteccion', 'Segmentacion'])
 
 confidence = float(st.sidebar.slider(
     "Select Model Confidence", 25, 100, 40)) / 100
@@ -45,13 +45,13 @@ except Exception as ex:
 
 st.sidebar.header("Selecciona")
 source_radio = st.sidebar.radio(
-    "Select Source", settings.SOURCES_LIST)
+    "Selecciona archivo", settings.SOURCES_LIST)
 
 source_img = None
 # If image is selected
 if source_radio == settings.IMAGE:
     source_img = st.sidebar.file_uploader(
-        "Choose an image...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
+        "Subir una imagen...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
 
     col1, col2 = st.columns(2)
 
