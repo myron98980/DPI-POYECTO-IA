@@ -21,11 +21,11 @@ st.set_page_config(
 st.title("Detector de objetos")
 
 # Sidebar
-st.sidebar.header("ML Model Config")
+st.sidebar.header("Configuracion")
 
 # Model Options
 model_type = st.sidebar.radio(
-    "Select Task", ['Detection', 'Segmentation'])
+    "Select Task", ['Deteccion', 'Segmentacion'])
 
 confidence = float(st.sidebar.slider(
     "Select Model Confidence", 25, 100, 40)) / 100
@@ -43,7 +43,7 @@ except Exception as ex:
     st.error(f"Unable to load model. Check the specified path: {model_path}")
     st.error(ex)
 
-st.sidebar.header("Image/Video Config")
+st.sidebar.header("Selecciona")
 source_radio = st.sidebar.radio(
     "Select Source", settings.SOURCES_LIST)
 
