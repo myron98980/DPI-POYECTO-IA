@@ -31,9 +31,9 @@ confidence = float(st.sidebar.slider(
     "Select Model Confidence", 25, 100, 40)) / 100
 
 # Selecting Detection Or Segmentation
-if model_type == 'Detection':
+if model_type == 'Deteccion':
     model_path = Path(settings.DETECTION_MODEL)
-elif model_type == 'Segmentation':
+elif model_type == 'Segmentacion':
     model_path = Path(settings.SEGMENTATION_MODEL)
 
 # Load Pre-trained ML Model
