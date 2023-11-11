@@ -95,8 +95,6 @@ if source_radio == settings.IMAGE:
                     # st.write(ex)
                     st.write("¡Aún no se ha cargado ninguna imagen!")
 
-# ... (resto del código) ...
-# ... (código anterior) ...
 
 elif source_radio == settings.VIDEO:
     # Reproducir video almacenado
