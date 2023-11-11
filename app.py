@@ -21,7 +21,7 @@ st.set_page_config(
 st.title("Detector de objetos")
 
 # Sidebar
-st.sidebar.header("Configuracion")
+st.sidebar.header("ML Model Config")
 
 # Model Options
 model_type = st.sidebar.radio(
@@ -31,9 +31,9 @@ confidence = float(st.sidebar.slider(
     "Select Model Confidence", 25, 100, 40)) / 100
 
 # Selecting Detection Or Segmentation
-if model_type == 'Deteccion':
+if model_type == 'Detection':
     model_path = Path(settings.DETECTION_MODEL)
-elif model_type == 'Segmentacion':
+elif model_type == 'Segmentation':
     model_path = Path(settings.SEGMENTATION_MODEL)
 
 # Load Pre-trained ML Model
@@ -43,15 +43,15 @@ except Exception as ex:
     st.error(f"Unable to load model. Check the specified path: {model_path}")
     st.error(ex)
 
-st.sidebar.header("Selecciona")
+st.sidebar.header("Image/Video Config")
 source_radio = st.sidebar.radio(
-    "Selecciona archivo", settings.SOURCES_LIST)
+    "Select Source", settings.SOURCES_LIST)
 
 source_img = None
 # If image is selected
 if source_radio == settings.IMAGE:
     source_img = st.sidebar.file_uploader(
-        "Subir una imagen...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
+        "Choose an image...", type=("jpg", "jpeg", "png", 'bmp', 'webp'))
 
     col1, col2 = st.columns(2)
 
