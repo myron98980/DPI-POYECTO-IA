@@ -149,6 +149,27 @@ def play_rtsp_stream(conf, model):
 
 
 def play_webcam(conf, model):
+    st.write("Entró a play_webcam")  # Mensaje de depuración
+    try:
+        vid_cap = cv2.VideoCapture(settings.WEBCAM_PATH)
+        if not vid_cap.isOpened():
+            st.write("Error al abrir la cámara web.")  # Mensaje de depuración
+        st_frame = st.empty()
+        while (vid_cap.isOpened()):
+            success, image = vid_cap.read()
+            if success:
+                _display_detected_frames(conf,
+                                         model,
+                                         st_frame,
+                                         image,
+                                         is_display_tracker,
+                                         tracker,
+                                         )
+            else:
+                vid_cap.release()
+                break
+    except Exception as e:
+        st.sidebar.error("Error loading video: " + str(e))
     """
     Plays a webcam stream. Detects Objects in real-time using the YOLOv8 object detection model.
 
