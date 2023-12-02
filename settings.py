@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys
+import cv2  # Importa OpenCV
 
 # Get the absolute path of the current file
 file_path = Path(__file__).resolve()
