@@ -45,4 +45,4 @@ DETECTION_MODEL = MODEL_DIR / 'yolov5s.pt'
 SEGMENTATION_MODEL = MODEL_DIR / 'yolov8n-seg.pt'
 
 # Webcam
-WEBCAM_PATH = 0
+WEBCAM_PATH = 1
