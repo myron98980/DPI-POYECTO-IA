@@ -1,5 +1,4 @@
 from ultralytics import YOLO
-import time
 import streamlit as st
 import cv2
 from pytube import YouTube
@@ -30,11 +29,7 @@ def _display_detected_frames(conf, model, st_frame, image, is_display_tracking=N
         res = model.predict(image, conf=conf)
 
     res_plotted = res[0].plot()
-    st_frame.image(res_plotted,
-                   caption='Detected Video',
-                   channels="BGR",
-                   use_column_width=True
-                   )
+    st_frame.image(res_plotted, caption='Detected Video', channels="BGR", use_column_width=True)
 
 
 def play_webcam(conf, model, is_display_tracker, tracker):
@@ -55,7 +50,7 @@ def play_webcam(conf, model, is_display_tracker, tracker):
                 vid_cap.release()
                 break
     except Exception as e:
-        st.sidebar.error("Error loading webcam: " + str(e))
+        st.sidebar.error(f"Error loading webcam: {str(e)}")
 
 
 def play_youtube_video(conf, model, is_display_tracker, tracker):
@@ -76,7 +71,7 @@ def play_youtube_video(conf, model, is_display_tracker, tracker):
                     vid_cap.release()
                     break
         except Exception as e:
-            st.sidebar.error("Error loading video: " + str(e))
+            st.sidebar.error(f"Error loading video: {str(e)}")
 
 
 def play_rtsp_stream(conf, model, is_display_tracker, tracker):
@@ -96,7 +91,7 @@ def play_rtsp_stream(conf, model, is_display_tracker, tracker):
                     break
         except Exception as e:
             vid_cap.release()
-            st.sidebar.error("Error loading RTSP stream: " + str(e))
+            st.sidebar.error(f"Error loading RTSP stream: {str(e)}")
 
 
 def play_stored_video(conf, model, is_display_tracker, tracker):
@@ -120,7 +115,7 @@ def play_stored_video(conf, model, is_display_tracker, tracker):
                     vid_cap.release()
                     break
         except Exception as e:
-            st.sidebar.error("Error loading video: " + str(e))
+            st.sidebar.error(f"Error loading video: {str(e)}")
 
 
 def main():
@@ -144,4 +139,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
